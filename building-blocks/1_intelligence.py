@@ -6,6 +6,7 @@ from strands.models.anthropic import AnthropicModel
 # Load environment variables from .env file
 load_dotenv()
 
+# Model object creation
 model = AnthropicModel(
     client_args={
         "api_key": os.getenv("ANTHROPIC_API_KEY")
@@ -18,5 +19,7 @@ model = AnthropicModel(
 )
 
 agent = Agent(model=model)
+
+# Calling Agent
 response = agent("What is a Square?")
 print(response)
